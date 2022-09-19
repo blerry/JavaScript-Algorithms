@@ -1,21 +1,28 @@
-
-// quick sort
-const quickSort = (array) => {
-    if(array.length === 1){ // edge case
-        return array;
-    }
-    const pivot = array[array.length-1]; //Last element is pivot
-    for(let i = 0; i < array.length - 1; i++){ //we dont want pivot # as part of for loop
-        const leftArr = [];
-        const rightArr = [];
-        if(array[i] < pivot){
-            leftArr.push(array[i]);
-        } else{
-            rightArr.push(array[i]);
+function partition(arr,start,end){
+    const pivot = arr[Math.floor((start+end)/2)]; //middle
+    while(start <= end){ //while not equal
+        while(arr[start] < pivot){ //increase pointer
+            start++;
         }
-    } //
-    return array;
+        while(arr[end] > pivot){ //decrease pointer
+            end--;
+        }
+        if(start<=end){ //swap
+            let temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        return start;
+    }
 }
 
-
-console.log(0);
+function quickSort(arr, start = 0, end = arr.length - 1) {
+    if (start < end) {
+        const index = partition(arr, start, end);
+        quickSort(arr, start, index - 1);
+        quickSort(arr, index, end);
+    }
+    return arr;
+}
