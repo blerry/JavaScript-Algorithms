@@ -24,13 +24,13 @@ var threeSum = function(nums){
 	let sol = [];
 
 	for(let i = 0; i < nums.length - 2; i++){
-		if(i > 0 && nums[i] == nums[i-1]{
+		if(i > 0 && nums[i] == nums[i-1]){
 			continue;
 		}
 		let subSol = twoSum(nums, -nums[i], i+1);
 
 		for(let s of subSol){
-			sol.push([nums[i].concat(s));
+			sol.push(nums[i].concat(s));
 		}
 	}
 	return sol;
