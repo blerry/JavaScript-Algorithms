@@ -55,3 +55,6 @@ function mergeSort(arr){
 //X Comment
 //Y Comment
 //Z Comment
+/*
+1
+*/
