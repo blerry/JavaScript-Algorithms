@@ -67,4 +67,5 @@ function mergeSort(arr){
 9
 10
 11
+12
 */
